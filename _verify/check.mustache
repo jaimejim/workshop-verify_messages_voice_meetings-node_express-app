@@ -1,0 +1,25 @@
+{{> utils/header }}
+
+<h1 class="text-2xl mb-4">Verify &raquo; Check</h1>
+
+<p class="text-red-500">{{ error }}</p>
+
+<p>Verifing: {{verifyRequestPhone}}</p>
+<p>Request ID: {{verifyRequestId}}</p>
+
+<form class="space-y-2 mt-8" action="/verify/check" method="POST">
+
+  <div>
+    <label for="code" class="text-lg font-medium">Please enter your code:</label>
+    <input id="code" name="code" type="text" autocomplete="code" required class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500" placeholder="">
+  </div>
+  
+  <button type="submit" class="w-full rounded-md border bg-indigo-600 hover:bg-indigo-700 py-2 px-4 text-white">
+    Check code
+  </button>
+
+</form>
+
+
+
+{{> utils/footer }}

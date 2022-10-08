@@ -1,0 +1,16 @@
+{{> utils/header }}
+
+<h1 class="text-2xl mb-4">Meetings (Beta)</h1>
+
+<p class="text-blue-500 text-xl font-medium">{{meetingStatus}}</p>
+<p class="text-blue-700 mt-1">{{meetingData}}</p>
+
+<p>To create an instant room:</p>
+
+<pre class="whitespace-pre-wrap border border-gray-200 px-2 py-2" style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap;white-space: -o-pre-wrap; word-wrap: break-word;"><code>curl -X POST 'https://api-eu.vonage.com/beta/meetings/rooms' \
+-H 'Authorization: Bearer {{jwt}}' \
+-H 'content-type: application/json' \
+-d '{ "display_name":"New Meeting Room" }'
+</code></pre>
+
+{{> utils/footer }}

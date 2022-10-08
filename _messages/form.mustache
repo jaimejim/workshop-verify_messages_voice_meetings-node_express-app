@@ -1,0 +1,26 @@
+{{> utils/header }}
+
+<h1 class="text-2xl mb-4">Messages &raquo; SMS</h1>
+
+<p class="text-blue-500 text-xl font-medium">{{messageStatus}}</p>
+<p class="text-blue-700 mt-1">{{messageData}}</p>
+
+<form class="space-y-2 mt-8" action="/messages/send" method="POST">
+
+  <div>
+    <label for="recipient" class="text-lg font-medium">Recipient</label>
+    <input id="recipient" name="recipient" type="text" autocomplete="phone" required class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500" placeholder="">
+  </div>
+
+  <div>
+    <label for="message" class="text-lg font-medium">Message</label>
+    <textarea id="message" name="message" rows="5" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500" placeholder="">"Hello World" powered by the Vonage Server SDK</textarea>
+  </div>
+
+  <button type="submit" class="w-full rounded-md border bg-indigo-600 hover:bg-indigo-700 py-2 px-4 text-white">
+    Send
+  </button>
+
+</form>
+
+{{> utils/footer }}

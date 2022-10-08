@@ -1,0 +1,12 @@
+{{> utils/header }}
+
+<h1 class="text-2xl mb-4">Verify &raquo; Authenticated</h1>
+
+<p class="text-red-500">{{error}}</p>
+
+<p>You are authenticated as:</p>
+<p class="text-xl font-bold">{{ user }}</p>
+
+<p class="mt-4"><a href="/verify/logout" class="underline">Logout</a></p>
+
+{{> utils/footer }}

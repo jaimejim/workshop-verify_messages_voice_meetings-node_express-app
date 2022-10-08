@@ -1,0 +1,20 @@
+{{> utils/header }}
+
+<h1 class="text-2xl mb-4">Verify &raquo; Start</h1>
+
+<p class="text-red-500">{{ error }}</p>
+  
+<form class="space-y-2 mt-8" action="/verify/start" method="POST">
+
+  <div>
+    <label for="phone" class="text-lg font-medium">Authenticate via Phone:</label>
+    <input id="phone" name="phone" type="text" autocomplete="phone" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500" placeholder="">
+  </div>
+
+  <button type="submit" class="w-full rounded-md border bg-indigo-600 hover:bg-indigo-700 py-2 px-4 text-white">
+    Start
+  </button>
+
+</form>
+
+{{> utils/footer }}
