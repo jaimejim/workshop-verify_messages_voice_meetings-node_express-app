@@ -4,11 +4,17 @@ This is a sample app showcasing the Vonage APIs.
 
 ## Installation
 
-1. Open .env.local file and add your Vonage credentials 
+1. Make a copy of `env.sample`:
 
-2. Place your application `private.key` inside the project
+```sh
+cp env.sample .env
+```
 
-3. Install `nodemon`:
+2. Open `.env` and add your Vonage credentials. 
+
+3. Place your application `private.key` inside the project.
+
+4. Install `nodemon`:
 
 ```sh
 npm install --location=global nodemon
