@@ -15,15 +15,15 @@ module.exports.voiceSetup = (app, vonage) => {
 
   app.post('/voice/talk', (request, response) => {
     vonage.calls.create({
-      to: [ { type: 'phone', number: request.body.phone }],
+      to: [{ type: 'phone', number: request.body.phone }],
       from: { type: 'phone', number: process.env.VONAGE_NUMBER },
-      ncco: [
-        { "action": "talk", "text": request.body.message }]
+      ncco: [{ "action": "talk", "text": request.body.message }]
     }, (err, data) => {
       if (err) {
         response.cookie('voiceStatus', 'Call not placed');
         response.cookie('voiceData', JSON.stringify(err));
       } else {
+        console.log(data);
         response.cookie('voiceStatus', 'Call placed successfully');
         response.cookie('voiceData', JSON.stringify(data, null, '\r\n'));
       }

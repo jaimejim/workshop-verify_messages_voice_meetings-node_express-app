@@ -95,7 +95,6 @@ module.exports.verifySetup = (app, vonage) => {
 
 
 
-
   app.get('/verify/logout', (request, response) => {
     response.clearCookie('verifyRequestId');
     response.clearCookie('verifyRequestPhone');

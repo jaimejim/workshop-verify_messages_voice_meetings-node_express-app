@@ -17,11 +17,12 @@ module.exports.messagesSetup = (app, vonage) => {
     const SMS = require("@vonage/server-sdk/lib/Messages/SMS");
     const sms = new SMS(request.body.message, request.body.recipient, process.env.VONAGE_NUMBER);
 
-    vonage.messages.send( sms, (error, data) => {
+    vonage.messages.send(sms, (error, data) => {
       if (error) {
         response.cookie('messageStatus', 'Message not sent');
         response.cookie('messageData', JSON.stringify(err));
       } else {
+        console.log(data);
         response.cookie('messageStatus', 'Message sent successfully');
         response.cookie('messageData', JSON.stringify(data));
       }
