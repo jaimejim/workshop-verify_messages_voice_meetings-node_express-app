@@ -14,7 +14,13 @@ cp env.sample .env
 
 3. Place your application `private.key` inside the project.
 
-4. Install `nodemon`:
+4. Install libraries:
+
+```sh
+npm install
+```
+
+5. Install `nodemon`:
 
 ```sh
 npm install --location=global nodemon
