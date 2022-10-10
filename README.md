@@ -14,7 +14,7 @@ cp env.sample .env
 
 3. Place your application `private.key` inside the project.
 
-4. Install libraries:
+4. Install dependencies:
 
 ```sh
 npm install
