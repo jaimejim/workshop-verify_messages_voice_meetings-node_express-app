@@ -4,33 +4,36 @@ This is a sample app showcasing the Vonage APIs.
 
 ## Requirements
 
-- a Vonage Developer Account - register at https://dashboard.nexmo.com
-- the latest version of Node.js - instructions & install packages are available at https://nodejs.org/en/
-- ngrok - install and setup instructions at https://ngrok.com/
+- a Vonage Developer Account - register at <https://dashboard.nexmo.com>
+- the latest version of Node.js - instructions & install packages are available at <https://nodejs.org/en/>
+- ngrok - install and setup instructions at <https://ngrok.com/>
 
 ## Installation
 
-1. Make a copy of `env.sample`:
+1. Make a copy of `env.sample`, named `.env`:
 
-```sh
-cp env.sample .env
+```
+  cp env.sample .env
 ```
 
-2. Open `.env` and add your Vonage api key and secret, available on your [Vonage Dashboard](https://dashboard.nexmo.com/settings). 
+2. Open `.env` and add your Vonage api key and secret; they are available on your [Vonage Dashboard](https://dashboard.nexmo.com/settings).
 
-3. In the Dashboard, create a new Vonage application and place the given `private.key` inside the project.
+3. Still in the Dashboard, visit "Applications" and then ["Create a new application"](https://dashboard.nexmo.com/applications/new).
+   1. Give your new application a name and choose "Generate public and private key".
+   2. Your browser will download the private key. Please ensure that you save it as a file named **private.key** inside your project folder.
+   3. Add the id of the app you just created as `APP_ID` to `.env`.
 
-4. Add the id of the app you just created as `APP_ID` to `.env`.
+4. [Search and buy a number](https://dashboard.nexmo.com/buy-numbers) with SMS & Voice capabilities
+   1. Link it to your Vonage app
+   2. Add it as `VONAGE_NUMBER` to `.env`.
 
-5. [Buy a number](https://dashboard.nexmo.com/buy-numbers) (or reuse an existing one), link it to your Vonage app and add it as `VONAGE_NUMBER` to `.env`.
-
-6. Install dependencies:
+5. Install project dependencies. In the terminal, inside the project folder, run:
 
 ```sh
 npm install
 ```
 
-7. Install `nodemon`:
+6. To avoid having to restart your server when the project content changes, you will install `nodemon`, a utility that will monitor for any changes in your source and automatically restart your server:
 
 ```sh
 npm install --location=global nodemon
@@ -44,7 +47,7 @@ To start the app:
 nodemon -e js,mustache server.js
 ```
 
-Also start `ngrok` to make webhook available, making sure to alter the path to your local ngrok installation as required:
+Also start `ngrok` to make your website available for the Vonage servers to interact with, making sure to alter the path to your local ngrok installation as required:
 
 ```sh
 ~/ngrok http 3000
@@ -52,20 +55,21 @@ Also start `ngrok` to make webhook available, making sure to alter the path to y
 
 ## Update Vonage app webhooks
 
-In the Vonage Dashboard, enable Voice, Messages and Meetings capabilities for your application and use the following URLs:
+In the Vonage Dashboard, enable Voice, Messages and Meetings capabilities for your application and use the following URLs, replacing **SUBDOMAIN** with the subdomain given by ngrok:
 
 - Messages
-  - **https://subdomain.ngrok.io/messages/inbound** - for Inbound URL
-  - **https://subdomain.ngrok.io/messages/status** - for Status URL
+  - **<https://SUBDOMAIN.ngrok.io/messages/inbound>** - for Inbound URL
+  - **<https://SUBDOMAIN.ngrok.io/messages/status>** - for Status URL
 - Voice
-  - **POST: https://subdomain.ngrok.io/voice/answer** - for Answer URL
-  - **POST: https://subdomain.ngrok.io/voice/event** - for Event URL
+  - ! Select HTTP POST for both Answer and Event URLs.
+  - **POST: <https://SUBDOMAIN.ngrok.io/voice/answer>** - for Answer URL
+  - **POST: <https://SUBDOMAIN.ngrok.io/voice/event>** - for Event URL
 - Meetings
-  - **https://subdomain.ngrok.io/meetings/rooms** - for Rooms URL
-  - **https://subdomain.ngrok.io/meetings/sessions** - for Sessions URL
-  
-# Ready
+  - **<https://SUBDOMAIN.ngrok.io/meetings/rooms>** - for Rooms URL
+  - **<https://SUBDOMAIN.ngrok.io/meetings/sessions>** - for Sessions URL
 
-Launch a web browser and navigate to http://localhost:3000
+> Please double-check that you selected HTTP POST for the Voice URLs.
 
+## Ready to go
 
+Launch a web browser and navigate to <http://localhost:3000>
