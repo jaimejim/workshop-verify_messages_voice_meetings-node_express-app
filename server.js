@@ -34,6 +34,10 @@ verifySetup(app, vonage);
 let { messagesSetup } = require('./_messages');
 messagesSetup(app, vonage);
 
+// Whatsapp
+let { whatsappSetup } = require('./_whatsapp');
+whatsappSetup(app, vonage);
+
 // Voice
 let { voiceSetup } = require('./_voice');
 voiceSetup(app, vonage);

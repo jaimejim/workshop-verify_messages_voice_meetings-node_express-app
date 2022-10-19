@@ -37,8 +37,9 @@ module.exports.verifySetup = (app, vonage) => {
       response.redirect('/');
       return;
     }
-
-    vonage.verify.request({ number: phone, brand: 'Vonage'}, (error, result) => {
+    // Switch from sms in finnish to call in spanish
+    //vonage.verify.request({ number: phone, brand: 'Vonage', lg: 'es-es', workflow_id: '7'}, (error, result) => {
+      vonage.verify.request({ number: phone, brand: 'Vonage'}, (error, result) => {
       if (error) {
         response.clearCookie('verifyRequest');
         response.cookie('error', JSON.stringify(error));
